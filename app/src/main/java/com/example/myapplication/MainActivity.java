@@ -14,9 +14,8 @@ import android.widget.TextView;
 public class MainActivity extends Activity implements
         OnClickListener {
 
-    private static final int REQUEST_TAKE_PHOTO = 1;
     private static final int DEFAULT_SAMPLE_RESOLUTION = 500;
-    private Button btnStart, btnStop, btnTakePic;
+    private Button btnStart, btnStop;
     private boolean started = false;
     private TextView tvState;
     private EditText etSampleResolution;
@@ -79,7 +78,6 @@ public class MainActivity extends Activity implements
         intent.putExtra("startListening", true);
         intent.putExtra("sampleResolution", sampleResolution);
         startService(intent);
-        btnTakePic.setEnabled(true);
         tvState.setText("Started");
     }
 
@@ -89,7 +87,6 @@ public class MainActivity extends Activity implements
         started = false;
         intent.putExtra("startListening", false);
         startService(intent);
-        btnTakePic.setEnabled(false);
         IncrementSessionId();
         tvState.setText("Stopped");
     }
@@ -103,7 +100,6 @@ public class MainActivity extends Activity implements
         btnStop.setOnClickListener(this);
         btnStart.setEnabled(true);
         btnStop.setEnabled(false);
-        btnTakePic.setEnabled(false);
 
         sampleResolution = DEFAULT_SAMPLE_RESOLUTION;
         etSampleResolution.setText(String.valueOf(sampleResolution));

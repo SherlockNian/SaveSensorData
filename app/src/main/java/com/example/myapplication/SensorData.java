@@ -9,15 +9,6 @@ public class SensorData {
     private double z;
     private String sensorName;
 
-    public SensorData(int sessionId, long timestamp, double x, double y, double z) {
-        this.sessionId = sessionId;
-        this.timestamp = timestamp;
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.sensorName="Default";
-    }
-
     public SensorData(int sessionId, long timestamp, double x, double y, double z, String sensorName) {
         this.sessionId = sessionId;
         this.timestamp = timestamp;
